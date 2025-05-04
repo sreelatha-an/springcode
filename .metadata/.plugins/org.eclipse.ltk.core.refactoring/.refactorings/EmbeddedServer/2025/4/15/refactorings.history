@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 4 elements from project &apos;EmbeddedServer&apos;&#x0D;&#x0A;- Original project: &apos;EmbeddedServer&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     tomcat.8080&#x0D;&#x0A;     tomcat.8085&#x0D;&#x0A;     tomcat.8086&#x0D;&#x0A;     tomcat.8088" description="Delete elements" element1="tomcat.8086" element2="tomcat.8085" element3="tomcat.8080" element4="tomcat.8088" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="4" stamp="1744098443718" subPackages="false" version="1.0"/>
+</session>

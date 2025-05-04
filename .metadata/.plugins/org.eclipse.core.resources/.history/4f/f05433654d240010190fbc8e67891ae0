@@ -1,0 +1,29 @@
+version: '3.3'
+services:
+  mysqld:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql4$Java	
+      MYSQL_USER: sree
+      MYSQL_PASSWORD: 1234
+    ports: 
+        - 3356:3306
+    networks:
+      - snetwork
+  app:
+   build: .
+   ports:
+       - "8081:8080"
+   depends_on:
+    - mysqld
+   networks:
+    - snetwork
+
+networks:
+  snetwork:
+    driver: sbridge
+
+volumes:
+  mysql-s-data:
+      
+    

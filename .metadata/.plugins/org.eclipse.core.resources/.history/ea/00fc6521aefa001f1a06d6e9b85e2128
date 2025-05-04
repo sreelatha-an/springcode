@@ -1,0 +1,45 @@
+package com.sreelatha.app;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.Transaction;
+import com.sreelatha.model.Answer;
+import com.sreelatha.model.AnswerTable;
+import com.sreelatha.model.Question;
+import com.sreelatha.model.QuestionTable;
+
+
+
+public class ManyToMany {
+
+	public static void main(String args[]) {
+
+		Configuration config = null;
+		SessionFactory sessionFactory = null;
+		Session session = null;
+		Transaction transaction = null;
+		boolean flag = false;
+		config = new Configuration();
+		config.configure();
+		sessionFactory = config.buildSessionFactory();
+		session = sessionFactory.openSession();
+		
+//		session.close();
+//		sessionFactory.close();
+		/**********below for persist **********/
+		Courses c1=new Courses();
+		c1.setId(1);
+		c1.setCourseName("Java");
+		c1.setCoursePrice(1999);
+		Courses c2=new Courses();
+		c2.setId(2);
+		c2.setCourseName("Hibernate");
+		c2.setCoursePrice(499);
+	}
+
+}

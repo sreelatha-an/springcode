@@ -1,0 +1,20 @@
+
+set system path= D:\MasterJava\openjdk23\jdk-23.0.2\bin   
+
+vscode == C:\Users\sreel\AppData\Local\Programs\Microsoft VS Code
+
+MySQL = pwd:: mysql4$Java
+connection name= mysqlConn , host=127.0.0.1 port=3306
+username=root
+executable path in service registry==
+"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld.exe" --defaults-file="C:\ProgramData\MySQL\MySQL Server 8.0\my.ini" MySQL80
+
+
+apache tomcat version=10, port=8085 localhost, AdminPort=8095
+
+=================old=================== 
+path =  C:\Program Files\Java\jdk-11.0.11\bin
+	C:\Program Files\Common Files\Oracle\Java\javapath
+	C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\
+
+JAVA_HOME = C:\Program Files\Java\jdk-11.0.11

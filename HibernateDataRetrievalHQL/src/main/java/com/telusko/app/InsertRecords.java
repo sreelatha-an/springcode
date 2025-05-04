@@ -1,0 +1,84 @@
+package com.telusko.app;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.MutationQuery;
+import org.hibernate.query.Query;
+
+import com.telusko.model.Student;
+
+public class InsertRecords 
+{
+
+	public static void main(String[] args) 
+	{
+			SessionFactory sessionFactory = new Configuration().configure().
+					addAnnotatedClass(Student.class).buildSessionFactory();
+			Session session=null;
+			Transaction transaction=null;
+			boolean flag=false;
+			int count=0;
+		
+
+			try
+			{
+				 session=sessionFactory.openSession();				 
+				 transaction=session.beginTransaction();				 
+//				 count=session.createQuery("UPDATE Student SET scity= :city").
+//				 setParameter("city", "Chennai").executeUpdate();
+				 
+/*	 Student stud = new Student(); stud.setSname("latha");stud.setScity("waris");
+ * 	session.persist(stud);
+ * Query<Student> query = session1.createQuery("SELECT new com.telusko.model.Student(c.sName, c.sid) FROM Student c WHERE c.scity IN(:city1, :city2)", Student.class);
+				query.setParameter("city1", "waris");
+				query.setParameter("city2", "Mumbai");
+ */
+				 MutationQuery qry=session.createMutationQuery("INSERT INTO  Student  (sid, sName, scity) VALUES (:xid,:name, :city)");
+				 
+				 for(int i=15; i<20;i++) {
+					int x = qry.setParameter("xid", i).setParameter("city", "Chennai").setParameter("name", "sree"+i).executeUpdate();
+					count=count+x;
+					System.out.println("x="+x+", count="+count);
+					
+					
+				 }					
+				
+				 
+				 flag=true;				 				
+			}
+			catch(HibernateException e)
+			{
+				e.printStackTrace();
+			
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			finally
+			{
+				if(flag==true)
+				{
+					transaction.commit();
+					System.out.println("No of rows updated "+ count);
+					
+				}
+				else
+				{
+					transaction.rollback();
+					System.out.println("No of rows updated "+ count);
+				
+				}
+				
+				session.close();
+				sessionFactory.close();
+			}
+		
+
+
+	}
+
+}

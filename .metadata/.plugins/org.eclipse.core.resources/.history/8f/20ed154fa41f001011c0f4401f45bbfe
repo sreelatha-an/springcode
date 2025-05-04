@@ -1,0 +1,7 @@
+spring.application.name=springOAuth
+# Google OAuth2 credentials
+spring.security.oauth2.client.registration.google.client-id=403246198249-j7f0rq8r3met76gdslvpba6r78f2fgmm.apps.googleusercontent.com
+spring.security.oauth2.client.registration.google.client-secret=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
+
+spring.security.oauth2.client.registration.google.client-id=Ov23liQXgoYWKCubINrj
+spring.security.oauth2.client.registration.github.client-secret=e0ab29068ab13bfc48e8a40731b1733e6c31a0b0

@@ -1,0 +1,26 @@
+services:
+  mysqld:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root	
+      MYSQL_USER: sree
+      MYSQL_PASSWORD: 1234
+    ports: 
+        - 3356:3306
+    networks:
+      - s-network
+  app:
+   build: .
+   ports:
+       - "8081:8080"   
+   networks:
+    - s-network
+
+networks:
+  s-network:
+    driver: bridge
+
+volumes:
+  mysql-s-data:
+    
+    

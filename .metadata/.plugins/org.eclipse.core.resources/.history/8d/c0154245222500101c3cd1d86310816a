@@ -1,0 +1,5 @@
+com\sree\studentApp\controllers\StudentController.class
+com\sree\studentApp\repo\StudentRepo.class
+com\sree\studentApp\StudentAppApplication.class
+com\sree\studentApp\service\StudentService.class
+com\sree\studentApp\model\Students.class

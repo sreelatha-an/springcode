@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here scope= singleton / prototype -->
+    <!-- bean id="alienobj" class="com.nikhil.SpringFrmwrk.Alien" scope="singleton" >
+	    <property name="name" value="sree"></property>
+	    <property name="lap" ref="lap1"> </property>
+	     <constructor-arg index="1" name="lap" type="com.nikhil.SpringFrmwrk.Laptop" ref="lap1"></constructor-arg>
+	    <constructor-arg index="0" name="name" type ="String" value="sree"></constructor-arg>	
+    </bean -->
+   <bean id="alienobj" class="com.nikhil.SpringFrmwrk.Alien" autowire="byType" > 
+	    <!-- <constructor-arg  ref="lap1"></ constructor-arg>
+	    <constructor-arg  value="sree"></ constructor-arg> -->	    
+	    <property name="name" value="sree"></property>
+	    <!-- <property name="comp" ref="comp2"> </ property> --> 
+    </bean>
+	<bean id="comp1" class="com.nikhil.SpringFrmwrk.Laptop" lazy-init="true">
+    </bean>
+	<bean id="comp2" class="com.nikhil.SpringFrmwrk.Desktop" primary="true">
+    </bean>
+
+
+
+</beans>

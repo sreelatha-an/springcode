@@ -1,0 +1,46 @@
+package com.sree.SpringJDBCEx;
+
+import java.util.List;
+import java.util.function.Consumer;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.sree.SpringJDBCEx.model.Student;
+import com.sree.SpringJDBCEx.service.StudentService;
+
+@SpringBootApplication
+public class SpringJdbcExApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext context = SpringApplication.run(SpringJdbcExApplication.class, args);
+		
+		Student s1 = context.getBean(Student.class);
+		s1.setRollNo(1);
+		s1.setName("Sree");
+		s1.setMarks(89);
+		
+		StudentService service = context.getBean(StudentService.class);
+		
+		service.addStudent(s1);
+		
+		service.getAllStudents()
+		.forEach(s->System.out.println("student["+s.getRollNo()+", "+s.getName()+", "+s.getMarks()+"]"));
+/*		List<Student> ss = service.getAllStudents();	
+		
+		Consumer cons = new Consumer() {
+
+			@Override
+			public void accept(Object s) {
+				
+				System.out.println("student["+s.getRollNo()+", "+s.getName()+", "+s.getMarks()+"]");
+				
+			}
+			
+		} ;
+		ss.forEach(cons);
+*/				
+	}
+
+}

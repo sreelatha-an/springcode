@@ -1,0 +1,9 @@
+FROM openjdk:25-slim-bullseye
+ADD target/student-app.jar  student-app.jar
+ENTRYPOINT ["java","-jar","/student-app.jar"]
+FROM mysql:latest
+RUN mysql -u root -proot -h localhost -p 3306
+RUN grant all privileges on *.* to 'root'@'%' identified by 'root';
+RUN flush all privileges;
+RUN exit;
+EXPOSE 3306

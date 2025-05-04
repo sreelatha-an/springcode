@@ -1,0 +1,4 @@
+spring.application.name=springOAuth
+# Google OAuth2 credentials
+spring.security.oauth2.client.registration.google.client-id=<your-google-client-id>
+spring.security.oauth2.client.registration.google.client-secret=<your-google-client-secret>

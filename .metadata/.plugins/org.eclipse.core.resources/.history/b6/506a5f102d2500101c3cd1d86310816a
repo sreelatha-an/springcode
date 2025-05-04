@@ -1,0 +1,18 @@
+services:
+  mysqld:
+    container_name: 'cont-mysql'
+    restart: always
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root	
+      MYSQL_USER: nikh
+      MYSQL_PASSWORD: 1234
+    ports: 
+        - '3307:3306'
+    
+  app:
+   build: .
+   ports:
+       - "8081:8080"
+   depends_on:
+    - mysqld

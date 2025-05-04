@@ -1,0 +1,28 @@
+package com.sree.JobApp;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.sree.JobApp.model.JobPost;
+
+@Controller
+public class JobController {
+
+	@RequestMapping({"/","home"})
+	public String home() {
+		return "home";
+	}
+	
+	@GetMapping("addjob")
+	public String addjob() {
+		return "addjob";
+	}
+	//@RequestMapping("handleForm", method="post")
+	@PostMapping("handleForm")
+	public String handleForm(JobPost jobPost) {
+		System.out.println("jobpost in handlForm()=="+jobPost.toString());
+		return "success";
+	}
+}

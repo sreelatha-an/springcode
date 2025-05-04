@@ -1,0 +1,17 @@
+package com.sree.springSecurity.Controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController {
+
+	@GetMapping({"/hello","/"})
+	public String hello() {
+		return "Hello to Security Demo..";
+	}
+	
+	public String about() {
+		return "<a href=\"sree.com\">sree</a>";
+	}
+}
